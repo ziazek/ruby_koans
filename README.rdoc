@@ -129,8 +129,6 @@ the statement is +false+.
 
 === Running the Koans automatically
 
-<em>This section is optional.</em>
-
 Normally the path to enlightenment looks like this:
 
     cd ruby_koans
@@ -151,8 +149,8 @@ Install the Ruby gem (library) called +watchr+ and then ask it to
     cd ruby_koans
     rake
     # decide to run rake automatically from now on as you edit
-    gem install watchr
-    watchr ./koans/koans.watchr
+    gem install guard-rake
+    guard
 
 == Inspiration
 
