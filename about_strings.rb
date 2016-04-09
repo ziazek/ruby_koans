@@ -60,7 +60,6 @@ EOS
     assert_equal "Hello, World", string
   end
 
-  # TODO: carry on from here.
   def test_plus_concatenation_will_leave_the_original_strings_unmodified
     hi = "Hello, "
     there = "World"
