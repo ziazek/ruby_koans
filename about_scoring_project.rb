@@ -31,6 +31,31 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+  raise ArgumentError, "maximum of 5 dice" if dice.size > 5
+  result = 0
+  scores = Hash.new(0)
+  dice.each { |e| scores[e] += 1 }
+  # scores.each do |dice_num, count|
+  #   if count >= 3
+  #     multiplier = 100
+  #     multiplier = 1000 if dice_num == 1
+  #     result += dice_num * multiplier
+  #     scores[dice_num] -= 3
+  #   end
+  # end
+  # scores.each do |dice_num, count|
+  #   result += count*100 if dice_num == 1
+  #   result += count*50 if dice_num == 5
+  # end
+
+  scores.each do |dice_num, count|
+    triplets, remainder = count / 3, count % 3
+
+    result += (remainder * 100) + (triplets * 1000)   if dice_num == 1
+    result += (remainder * 50) + (triplets * 500)     if dice_num == 5
+    result += (100 * dice_num)                        if dice_num != 1 && dice_num != 5 && count >= 3
+  end
+  result
 end
 
 class AboutScoringProject < Neo::Koan
