@@ -35,6 +35,9 @@ def score(dice)
   result = 0
   scores = Hash.new(0)
   dice.each { |e| scores[e] += 1 }
+
+  # solution #1
+  
   # scores.each do |dice_num, count|
   #   if count >= 3
   #     multiplier = 100
@@ -48,6 +51,7 @@ def score(dice)
   #   result += count*50 if dice_num == 5
   # end
 
+  # alternative version, from https://gist.github.com/cvortmann/1436597
   scores.each do |dice_num, count|
     triplets, remainder = count / 3, count % 3
 
